@@ -33,6 +33,30 @@ body {
     height: 8vh;
 }
 
+@media only screen and (max-width: 600px) {
+    .header {
+        height: 10vh;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .header {
+        height: 10vh;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .header {
+        height: 10vh;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .header {
+        height: 10vh;
+    }
+}
+
 .header h1, h4 {
     color: white;
 }
@@ -61,6 +85,30 @@ body {
     border: none;
     font-size: 16px;
     margin-right: 6px;
+}
+
+@media only screen and (max-width: 600px) {
+    .todo--input {
+        width: 50vw;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .todo--input {
+        width: 50vw;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .todo--input {
+        width: 50vw;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .todo--input {
+        width: 25vw;
+    }
 }
 
 .todo--input:focus {
@@ -139,6 +187,30 @@ body {
     padding: 0px 10px;
     border-radius: 6px;
     margin: 3px 0px;
+}
+
+@media only screen and (max-width: 600px) {
+    .list--item {
+        width: 80vw;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .list--item {
+        width: 80vw;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .list--item {
+        width: 50vw;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .list--item {
+        width: 25vw;
+    }
 }
 
 .checkbox--filter {

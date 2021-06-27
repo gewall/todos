@@ -96,7 +96,7 @@
                             if (i['status'] === true) {
 
                                 resItem += '<li class="list--item">' +
-                                    '<p>' + i['text'] + '</p>' +
+                                    '<p>' + (i['text'].length > 20 ? i['text'].substring(0, 18) + ".." : i['text']) + '</p>' +
                                     '<div>' +
                                     '<button class="btn--selesai " ' + (i['status'] ? "disabled" : "") + ' id="task_' + id + '">Selesai</button>' +
                                     '<button class="btn--hapus" id="task_' + id + '">Hapus</button>' +
@@ -105,7 +105,7 @@
                             }
                         } else if (i['status' === true]) {
                             resItem += '<li class="list--item">' +
-                                '<p>' + i['text'] + '</p>' +
+                                '<p>' + (i['text'].length > 15 ? i['text'].substring(0, 18) + ".." : i['text']) + '</p>' +
                                 '<div>' +
                                 '<button class="btn--selesai " ' + (i['status'] ? "disabled" : "") + ' id="task_' + id + '">Selesai</button>' +
                                 '<button class="btn--hapus" id="task_' + id + '">Hapus</button>' +
@@ -114,7 +114,7 @@
                         }
                     } else {
                         resItem += '<li class="list--item">' +
-                            '<p>' + i['text'] + '</p>' +
+                            '<p>' + (i['text'].length > 15 ? i['text'].substring(0, 18) + ".." : i['text']) + '</p>' +
                             '<div>' +
                             '<button class="btn--selesai " ' + (i['status'] ? "disabled" : "") + ' id="task_' + id + '">Selesai</button>' +
                             '<button class="btn--hapus" id="task_' + id + '">Hapus</button>' +
