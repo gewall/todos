@@ -1,0 +1,148 @@
+*,*::after,*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.gap {
+    height: 24px;
+}
+
+.root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #81D4FA;
+}
+
+.todo-wrapper {
+    height: auto;
+    padding: 15px;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 8vh;
+}
+
+.header h1, h4 {
+    color: white;
+}
+
+.todo--warn {
+    color: white;
+    margin: 10px 0px;
+}
+
+.content {
+    margin: 5px 0px;
+    
+}
+
+.todo--input--wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todo--input {
+    width: 25vw;
+    height: 4vh;
+    padding: 0px 10px;
+    border-radius: 6px;
+    border: none;
+    font-size: 16px;
+    margin-right: 6px;
+}
+
+.todo--input:focus {
+    outline: none;
+}
+
+.btn--selesai:focus {
+    background-color:   rgb(27, 94, 32);
+}
+
+.btn--tambah:focus {
+    background-color:   rgb(21, 101, 192);
+}
+
+.btn--hapus:focus {
+    background-color:   rgb(183, 28, 28);
+}
+
+.btn--tambah {
+    height: 4vh;
+    padding: 0px 5px;
+    border: none;
+    border-radius: 6px;
+    background-color: #1E88E5;
+    color: white;
+    cursor: pointer;
+}
+
+.btn--selesai {
+    height: 3vh;
+    padding: 0px 5px;
+    border: none;
+    border-radius: 6px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    margin-right: 3px;
+}
+
+.btn--hapus {
+    height: 3vh;
+    padding: 0px 5px;
+    border: none;
+    border-radius: 6px;
+    background-color: #F44336;
+    color: white;
+    cursor: pointer;
+}
+
+.list--header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.list--wrapper {
+    margin: 5px 0px;
+    color: white;
+}
+
+.list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0px;
+}
+
+.list--item {
+    background-color: #2196F3;
+    height: 5vh;
+    width: 25vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px;
+    border-radius: 6px;
+    margin: 3px 0px;
+}
+
+.checkbox--filter {
+    border: none;
+    outline: none;
+    border-radius: 50%;
+}

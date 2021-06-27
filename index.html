@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+
+<body>
+    <div class="root">
+        <div class="todo--wrapper">
+            <div class="header">
+                <h1>Javascript Todo List</h1>
+                <h4>Web ini dibuat dengan Javascript.</h4>
+                <div class="todo--warn">
+                    <p>Isi Task Anda dibawah ini. </p>
+                </div>
+            </div>
+            <div class="content">
+                <div class="todo--input-wrapper">
+                    <input type="text" class="todo--input" placeholder="Isi Task Anda Disini...">
+                    <button class="btn--tambah">Tambah</button>
+                </div>
+                <div class="list--wrapper">
+                    <div class="list--header">
+                        <p>List Tasks Anda :</p>
+                        <p>Selesai : <input type="checkbox" class="checkbox--filter"></p>
+                    </div>
+                    <ul class="list">
+
+                    </ul>
+                </div>
+            </div>
+            <div class="footer"></div>
+        </div>
+    </div>
+
+    <script>
+        let myTask = [];
+        let isFilter = { status: false };
+
+
+        const textInput = document.querySelector(".todo--input");
+        const btnTambah = document.querySelector(".btn--tambah");
+
+        const listItem = document.querySelector(".list");
+
+
+
+        const changeTask = (e) => {
+            let id = e.target.id;
+            id = id.substring(id.length - 1, id.length);
+
+            myTask.map((i, k) => {
+                if (parseInt(k + 1) === parseInt(id)) {
+                    i['status'] = true;
+                }
+            })
+
+            mapTask();
+        }
+
+        const deleteTask = (e) => {
+            let id = e.target.id;
+            id = id.substring(id.length - 1, id.length);
+            let newTask = [];
+
+            myTask.map((i, k) => {
+                const _id = k + 1;
+                if (parseInt(_id) !== parseInt(id)) {
+                    newTask.push(i);
+                    myTask = newTask;
+                } else if (parseInt(id) === 1) {
+                    myTask = [];
+
+                }
+            })
+
+            mapTask();
+        }
+
+        const mapTask = () => {
+            let resItem;
+
+            if (myTask.length === []) {
+                resItem = '<li class="list--item"><p>Silahkan Tambah Task</p></li>';
+            } else {
+                myTask.map((i, k) => {
+                    const id = k + 1;
+                    console.log(isFilter.status);
+                    if (isFilter.status !== i['status']) {
+                        if (i['status'] !== true) {
+                            if (i['status'] === true) {
+
+                                resItem += '<li class="list--item">' +
+                                    '<p>' + i['text'] + '</p>' +
+                                    '<div>' +
+                                    '<button class="btn--selesai " ' + (i['status'] ? "disabled" : "") + ' id="task_' + id + '">Selesai</button>' +
+                                    '<button class="btn--hapus" id="task_' + id + '">Hapus</button>' +
+                                    '</div>' +
+                                    '</li>'
+                            }
+                        } else if (i['status' === true]) {
+                            resItem += '<li class="list--item">' +
+                                '<p>' + i['text'] + '</p>' +
+                                '<div>' +
+                                '<button class="btn--selesai " ' + (i['status'] ? "disabled" : "") + ' id="task_' + id + '">Selesai</button>' +
+                                '<button class="btn--hapus" id="task_' + id + '">Hapus</button>' +
+                                '</div>' +
+                                '</li>'
+                        }
+                    } else {
+                        resItem += '<li class="list--item">' +
+                            '<p>' + i['text'] + '</p>' +
+                            '<div>' +
+                            '<button class="btn--selesai " ' + (i['status'] ? "disabled" : "") + ' id="task_' + id + '">Selesai</button>' +
+                            '<button class="btn--hapus" id="task_' + id + '">Hapus</button>' +
+                            '</div>' +
+                            '</li>'
+                    }
+
+                })
+            }
+
+            listItem.innerHTML = resItem !== undefined ? resItem.replace("undefined", "") : '<li class="list--item"><p>Silahkan Tambah Task</p></li>';
+
+            const btnSelesai = document.querySelectorAll(".btn--selesai");
+            btnSelesai.forEach(btn => btn.addEventListener('click', e => changeTask(e)));
+            btnSelesai.forEach(btn => { btn.disabled ? (btn.style.backgroundColor = "rgb(117, 117, 117)") : null });
+
+            const btnHapus = document.querySelectorAll(".btn--hapus").forEach(btn => btn.addEventListener('click', e => deleteTask(e)));
+
+
+
+        }
+
+        const addTask = () => {
+            if (textInput.value === '') {
+                return;
+            } else {
+                myTask.push({ text: textInput.value, status: false });
+
+                mapTask();
+            }
+        }
+
+        btnTambah.addEventListener('click', e => addTask());
+        const checkFilter = document.querySelector(".checkbox--filter");
+
+        checkFilter.addEventListener('change', e => {
+            e.target.checked ? isFilter.status = true : isFilter.status = false;
+            mapTask();
+        });
+
+
+        mapTask();
+    </script>
+</body>
+
+</html>
